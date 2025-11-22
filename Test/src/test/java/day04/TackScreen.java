@@ -23,7 +23,7 @@ public class TackScreen {
 		//Take screen 
 		//Take Screenshot
 		File src = driver.getScreenshotAs(OutputType.FILE);//this is after the CTRL +2 
-		File des = new File(".\\images\\1.png");
+		File des = new File(".\\Screenshot\\1.png");
 		
 		//we added to the path "\\ image" to create a new file inside the project
 		//between the brackets instead of copying the path full we typed "." which points at the current project

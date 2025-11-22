@@ -4,33 +4,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DDL {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-	WebDriverManager.chromedriver().setup();
 	ChromeDriver driver=new ChromeDriver();
-//	driver.get("https://katalon-demo-cura.herokuapp.com/");
-//	driver.manage().window().maximize();
-//	driver.findElement(By.id("btn-make-appointment")).click();
-//	driver.findElement(By.name("username")).sendKeys("John Doe");
-//	driver.findElement(By.id("txt-password")).sendKeys("ThisIsNotAPassword");
-//	driver.findElement(By.id("btn-login")).click();
-//	
-//	
-//	WebElement hh = driver.findElement(By.id("combo_facility"));//ctrl 2
-//	Select health =new Select(hh);
-//	//health.selectByIndex(1);
-//	//health.selectByVisibleText("Seoul CURA Healthcare Center");
-//	health.selectByValue("Hongkong CURA Healthcare Center");
-//	
-//	
-	driver.get("https://www.hyrtutorials.com/p/html-dropdown-elements-practice.html");
-	driver.manage().window().maximize();
 	
+	@BeforeMethod
+	public void Test(){
+		WebDriverManager.chromedriver().setup();
+		driver.get("https://www.hyrtutorials.com/p/html-dropdown-elements-practice.html");
+		driver.manage().window().maximize();
+		
+	}
+  @org.testng.annotations.Test
+public void TestCase1(){
 	WebElement hh = driver.findElement(By.id("ide"));
 	
 	Select multi=new Select(hh);
@@ -40,11 +30,13 @@ public class DDL {
 	multi.selectByValue("nb");
 	
 	multi.deselectByValue("nb");
-	
-	
-	
-	
-	
+	}
+ @AfterMethod	
+ 
+ public void Exit() {
+	 
+	 driver.quit();
+ }
 	}
 
-}
+
